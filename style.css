@@ -1,9 +1,8 @@
-/* Variables de color estilo "Tierra/Artesanal" */
 :root {
-  --bg-color: #f4f1de; /* Crema suave */
-  --text-color: #3d405b; /* Azul oscuro/grisáceo */
-  --accent-color: #e07a5f; /* Terracota */
-  --gold-color: #f2cc8f; /* Amarillo suave */
+  --bg-color: #f4f1de;
+  --text-color: #3d405b;
+  --accent-color: #e07a5f;
+  --gold-color: #f2cc8f;
 }
 
 body,
@@ -14,7 +13,7 @@ html {
   font-family: "Cormorant Garamond", serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  overflow: hidden; /* Evita scroll */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +41,10 @@ html {
   z-index: -1;
 }
 
-/* Estilos de la pantalla de bienvenida */
+.content {
+  max-width: 700px;
+}
+
 h1 {
   font-size: 3.5rem;
   margin-bottom: 10px;
@@ -52,6 +54,14 @@ h1 {
 p {
   font-size: 1.5rem;
   font-style: italic;
+}
+
+.welcome-subtitle {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--text-color);
+  margin-top: 15px;
 }
 
 button {
@@ -73,9 +83,32 @@ button:hover {
   box-shadow: 0 6px 20px rgba(224, 122, 95, 0.6);
 }
 
-/* Estilos del contenedor de letras */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Pantalla de mensaje */
+.message-content {
+  max-width: 650px;
+  padding: 20px;
+}
+
+.message-text {
+  font-size: 1.4rem;
+  line-height: 2;
+  text-align: center;
+  font-style: normal;
+  color: var(--text-color);
+  margin-bottom: 25px;
+}
+
+/* Pantalla de letras */
 #lyrics-container {
   max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 #current-line {
@@ -83,24 +116,43 @@ button:hover {
   line-height: 1.4;
   font-weight: 700;
   color: var(--text-color);
-  opacity: 0; /* Empieza invisible para animar */
+  opacity: 0;
   transition: all 0.5s ease-out;
   transform: translateY(20px);
 }
 
-/* Clase que se añade con JS para mostrar la letra */
 .visible-lyric {
   opacity: 1 !important;
   transform: translateY(0) !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Responsividad para móviles */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
   }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .message-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
   #current-line {
     font-size: 1.8rem;
+  }
+
+  button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
   }
 }

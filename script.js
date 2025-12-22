@@ -1,86 +1,91 @@
-// Datos de la letra sincronizados (Tiempos convertidos a segundos)
 const lyricsData = [
-  { start: 1.08, end: 5.15, text: "Qué bonitos tus ojitos," },
+  { time: 1, text: "Qué bonitos tus ojitos," },
+  { time: 5, text: "Como obsidianas en calma" },
+  { time: 9, text: "Y tu nariz pronunciada," },
+  { time: 11, text: "Que pareciera tallada<br>con agua del río Grijalva," },
+  { time: 17, text: "Y qué bonito tu acento," },
+  { time: 21, text: "como canción de calandria," },
   {
-    start: 5.16,
-    end: 11.39,
-    text: "como obsidianas en calma,<br>y tu nariz pronunciada,",
+    time: 25,
+    text: "Qué lindo tu movimiento,",
   },
   {
-    start: 11.4,
-    end: 17.11,
-    text: "que pareciera tallada<br>con agua del río Grijalva,",
+    time: 27,
+    text: "Como canoa con el viento,",
   },
-  { start: 17.12, end: 21.27, text: "y qué bonito tu acento," },
-  { start: 21.28, end: 25.35, text: "como canción de calandria," },
+  { time: 29, text: "Flotando en el papaloapan," },
+  { time: 34, text: "Ay morena morenita," },
+  { time: 38, text: "Eres mi artesanía favorita," },
+  { time: 43, text: "Mi razón, pues de son," },
+  { time: 47, text: "Ay morena tu carita" },
+  { time: 50, text: "Y esas trenzas como de una muñequita," },
+  { time: 55, text: "Son un milagrito bajo el sol." },
   {
-    start: 25.36,
-    end: 29.91,
-    text: "qué lindo tu movimiento,<br>como canoa con el viento flotando.",
-  },
-  { start: 30.24, end: 34.43, text: "en el papaloapan," },
-  { start: 34.44, end: 38.63, text: "ay morena morenita," },
-  { start: 38.64, end: 43.27, text: "eres mi artesanía favorita," },
-  { start: 43.28, end: 46.71, text: "mi razón, pues de son," },
-  { start: 46.72, end: 50.51, text: "ay morena tu carita" },
-  { start: 50.52, end: 55.47, text: "y esas trenzas como de una muñequita," },
-  { start: 55.48, end: 59.91, text: "son un milagrito bajo el sol." },
-  // Espacio instrumental largo manejado para que no se quede texto viejo
-  {
-    start: 73.72,
-    end: 78.59,
-    text: "y qué fresquita la sombra<br>que te dibuja el sombrero que preciosura",
-  },
-  { start: 78.6, end: 82.19, text: "el pigmento de barro" },
-  { start: 82.2, end: 87.35, text: "y cobre contento que tiene tu cuerpo" },
-  { start: 87.36, end: 91.15, text: "entero tú huipilito" },
-  { start: 91.16, end: 98.07, text: "de flores atrae a las mariposas," },
-  { start: 98.08, end: 100.27, text: "con bota larga o reboso," },
-  {
-    start: 100.28,
-    end: 107.27,
-    text: "pones al cielo celoso de tu silueta preciosa,",
-  },
-  { start: 107.28, end: 111.47, text: "ay morena morenita," },
-  { start: 111.48, end: 116.07, text: "eres mi artesanía favorita," },
-  { start: 116.08, end: 119.91, text: "mi razón pues de son." },
-  { start: 120.24, end: 124.07, text: "ay morena tu carita y esas" },
-  { start: 124.08, end: 128.75, text: "trenzas como de una muñequita," },
-  { start: 128.76, end: 132.47, text: "son un milagrito bajo" },
-  { start: 132.48, end: 147.71, text: "el sol," },
-  { start: 147.72, end: 149.91, text: "morenita de barro" },
-  {
-    start: 150.08,
-    end: 155.87,
-    text: "Morenita de sol,<br>te planté un saguaro en mi corazón,",
+    time: 74,
+    text: "Y qué fresquita la sombra",
   },
   {
-    start: 155.88,
-    end: 162.03,
-    text: "morenita de barro, morenita de sol,<br>te planté un sabuaro,",
+    time: 77,
+    text: "Que te dibuja el sombrero ",
   },
-  { start: 162.04, end: 167.75, text: "en mi corazón ay morena," },
-  { start: 167.76, end: 171.99, text: "ay morena," },
-  { start: 172.0, end: 179.91, text: "ay morena," },
-  { start: 180.2, end: 185.51, text: "tu eres ese milagrito bajo" },
-  { start: 185.52, end: 194.79, text: "el sol." },
+  { time: 81, text: "Que preciosura <br/>el pigmento de barro" },
+  { time: 84, text: "Y cobre contento que tiene tu cuerpo entero" },
+  { time: 90, text: "Tú huipilito de flores atrae <br/>a las mariposas," },
+  { time: 98, text: "Con bota larga o reboso," },
+  { time: 100, text: "Pones al cielo celoso de tu silueta preciosa," },
+  { time: 107, text: "Ay morena morenita," },
+  { time: 111, text: "Eres mi artesanía favorita," },
+  { time: 116, text: "Mi razón pues de son." },
+  { time: 119, text: "Ay morena tu carita y esas.." },
+  { time: 124, text: "Trenzas como de una muñequita," },
+  { time: 128, text: "Son un milagrito bajo" },
+  { time: 132, text: "El sol." },
+  { time: 147, text: "Morenita de barro" },
+  {
+    time: 150,
+    text: "Morenita al sol,<br>te planté un saguaro en mi corazón,",
+  },
+  {
+    time: 156,
+    text: "Morenita de barro, morenita al sol,<br>te planté un saguaro,",
+  },
+  { time: 162, text: "En mi corazón ay morena," },
+  { time: 168, text: "Ayyy morena," },
+  { time: 172, text: "Ay moreeena," },
+  { time: 180, text: "Tu eres ese milagrito" },
+  { time: 186, text: "Bajo el sol." },
 ];
 
 const startBtn = document.getElementById("start-btn");
+const continueBtn = document.getElementById("continue-btn");
+const restartBtn = document.getElementById("restart-btn");
 const welcomeScreen = document.getElementById("welcome-screen");
+const messageScreen = document.getElementById("message-screen");
 const lyricsScreen = document.getElementById("lyrics-screen");
+const endScreen = document.getElementById("end-screen");
 const audioPlayer = document.getElementById("audio-player");
 const currentLineEl = document.getElementById("current-line");
 
-startBtn.addEventListener("click", () => {
-  // 1. Ocultar pantalla de bienvenida
-  welcomeScreen.style.opacity = "0";
+let currentLyricIndex = -1;
 
+// Iniciar experiencia - mostrar mensaje
+startBtn.addEventListener("click", () => {
+  welcomeScreen.style.opacity = "0";
   setTimeout(() => {
     welcomeScreen.classList.add("hidden");
-    lyricsScreen.classList.remove("hidden");
+    messageScreen.classList.remove("hidden");
+    setTimeout(() => {
+      messageScreen.style.opacity = "1";
+    }, 100);
+  }, 1000);
+});
 
-    // Pequeña pausa para que la transición sea suave
+// Continuar a las letras y reproducir música
+continueBtn.addEventListener("click", () => {
+  messageScreen.style.opacity = "0";
+  setTimeout(() => {
+    messageScreen.classList.add("hidden");
+    lyricsScreen.classList.remove("hidden");
     setTimeout(() => {
       lyricsScreen.style.opacity = "1";
       audioPlayer.play();
@@ -89,36 +94,74 @@ startBtn.addEventListener("click", () => {
   }, 1000);
 });
 
+// Reiniciar todo
+restartBtn.addEventListener("click", () => {
+  endScreen.style.opacity = "0";
+  setTimeout(() => {
+    endScreen.classList.add("hidden");
+    lyricsScreen.classList.remove("hidden");
+    currentLyricIndex = -1;
+    currentLineEl.classList.remove("visible-lyric");
+    audioPlayer.currentTime = 0;
+    setTimeout(() => {
+      lyricsScreen.style.opacity = "1";
+      audioPlayer.play();
+      startSync();
+    }, 500);
+  }, 1000);
+});
+
+// Detectar cuando termina la música
+audioPlayer.addEventListener("ended", () => {
+  setTimeout(() => {
+    lyricsScreen.style.opacity = "0";
+    setTimeout(() => {
+      lyricsScreen.classList.add("hidden");
+      endScreen.classList.remove("hidden");
+      setTimeout(() => {
+        endScreen.style.opacity = "1";
+      }, 100);
+    }, 1000);
+  }, 2000); // Espera 2 segundos después de terminar
+});
+
+// Función para actualizar la letra basándose en el tiempo actual
+function updateLyrics(currentTime) {
+  let newIndex = -1;
+
+  for (let i = 0; i < lyricsData.length; i++) {
+    if (currentTime >= lyricsData[i].time) {
+      newIndex = i;
+    } else {
+      break;
+    }
+  }
+
+  if (newIndex !== currentLyricIndex) {
+    currentLyricIndex = newIndex;
+
+    if (newIndex >= 0) {
+      currentLineEl.classList.remove("visible-lyric");
+      setTimeout(() => {
+        currentLineEl.innerHTML = lyricsData[newIndex].text;
+        currentLineEl.classList.add("visible-lyric");
+      }, 100);
+    } else {
+      currentLineEl.classList.remove("visible-lyric");
+    }
+  }
+}
+
+// Bucle principal de sincronización
 function startSync() {
-  // Loop de animación para chequear el tiempo constantemente
   requestAnimationFrame(checkTime);
 }
 
 function checkTime() {
   const currentTime = audioPlayer.currentTime;
+  updateLyrics(currentTime);
 
-  // Buscar si hay alguna línea que corresponda al tiempo actual
-  const currentLyric = lyricsData.find(
-    (line) => currentTime >= line.start && currentTime <= line.end
-  );
-
-  if (currentLyric) {
-    // Si el texto es diferente al que ya está, actualizamos
-    if (currentLineEl.innerHTML !== currentLyric.text) {
-      // Animación de salida (fade out)
-      currentLineEl.classList.remove("visible-lyric");
-
-      // Esperar un momento breve para cambiar el texto y hacer fade in
-      setTimeout(() => {
-        currentLineEl.innerHTML = currentLyric.text;
-        currentLineEl.classList.add("visible-lyric");
-      }, 100); // 100ms para el cambio
-    }
-  } else {
-    // Si no hay letra en este momento (intro o instrumental), ocultamos el texto
-    currentLineEl.classList.remove("visible-lyric");
+  if (!audioPlayer.ended) {
+    requestAnimationFrame(checkTime);
   }
-
-  // Continuar el loop
-  requestAnimationFrame(checkTime);
 }
