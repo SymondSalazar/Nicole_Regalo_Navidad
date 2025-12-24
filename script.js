@@ -43,13 +43,21 @@ const lyricsData = [
   { time: 147, text: "Morenita de barro" },
   {
     time: 150,
-    text: "Morenita al sol,<br>te planté un saguaro en mi corazón,",
+    text: "Morenita al sol,",
+  },
+  {
+    time: 153,
+    text: "Te planté un saguaro en mi corazón,",
   },
   {
     time: 156,
-    text: "Morenita de barro, morenita al sol,<br>te planté un saguaro,",
+    text: "Morenita de barro",
   },
-  { time: 162, text: "En mi corazón ay morena," },
+  {
+    time: 159,
+    text: "Morenita al sol,<br>te planté un saguaro,",
+  },
+  { time: 162, text: "En mi corazón, ay morena," },
   { time: 168, text: "Ayyy morena," },
   { time: 172, text: "Ay moreeena," },
   { time: 180, text: "Tu eres ese milagrito" },
