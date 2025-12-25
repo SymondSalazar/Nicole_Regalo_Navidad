@@ -33,6 +33,7 @@ html {
   transition: opacity 1s ease-in-out;
   padding: 20px;
   box-sizing: border-box;
+  z-index: 10;
 }
 
 .hidden {
@@ -43,6 +44,8 @@ html {
 
 .content {
   max-width: 700px;
+  position: relative;
+  z-index: 20;
 }
 
 h1 {
@@ -76,6 +79,8 @@ button {
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 30;
+  position: relative;
 }
 
 button:hover {
@@ -103,12 +108,19 @@ button:active {
 }
 
 /* Pantalla de letras */
+#lyrics-screen {
+  position: relative;
+  overflow: hidden;
+}
+
 #lyrics-container {
   max-width: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+  position: relative;
+  z-index: 50; /* Letras por encima de imágenes */
 }
 
 #current-line {
@@ -119,40 +131,196 @@ button:active {
   opacity: 0;
   transition: all 0.5s ease-out;
   transform: translateY(20px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
 .visible-lyric {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Sombra blanca para letras cuando hay video detrás */
+.lyric-with-video {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- ESTILOS VISUALES (IMÁGENES Y VIDEOS) --- */
+
+#visuals-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Detrás de las letras */
+  pointer-events: none;
+}
+
+/* IMÁGENES: Ajuste de tamaño para ser pequeñitas */
+.visual-element {
+  position: absolute;
+  bottom: 0;
+  max-height: 25vh; /* Mucho más pequeñas (antes 70vh) */
+  max-width: 25vw; /* Más estrechas */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /* Sombra suave */
+}
+
+/* Posiciones */
+.pos-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-left {
+  left: 15%; /* Un poco más centradas que antes */
+  transform: translateX(0);
+}
+
+.pos-right {
+  right: 15%;
+  transform: translateX(0);
+}
+
+/* Animaciones de Imágenes */
+.img-enter {
+  animation: slideUp 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.img-exit {
+  animation: slideDown 2s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+.wiggle-effect {
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+/* Wrapper de imagen */
+.image-wrapper {
+  position: absolute;
+  bottom: -100%;
+  /* Aumentamos el padding para que suba más y quede cerca de las letras */
+  padding-bottom: 35vh; /* Cambiado de 5vh a 35vh */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Ajustes para videos/gifs - TAMAÑO FIJO */
+.video-element {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Tamaño fijo que funciona bien en móvil y escritorio */
+  width: min(90vw, 500px);
+  height: auto;
+  opacity: 0;
+  z-index: 1;
+  object-fit: contain;
+}
+
+/* Clase nueva para el Fade In del video */
+.video-fade-in {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Clase nueva para el Fade Out del video */
+.video-fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+/* Keyframes */
+@keyframes slideUp {
+  from {
+    bottom: -50vh; /* No hace falta que viaje desde tan abajo */
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    bottom: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: -50vh;
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  75% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* RESPONSIVE: AJUSTES PARA MÓVIL */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
   }
 
-  p {
-    font-size: 1.2rem;
+  /* En móvil pueden ser un poquito más grandes para que se vean */
+  .visual-element {
+    max-height: 20vh;
+    max-width: 40vw;
   }
 
-  .welcome-subtitle {
-    font-size: 1.3rem;
-    line-height: 1.5;
+  .pos-left {
+    left: 5%;
   }
-
-  .message-text {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
+  .pos-right {
+    right: 5%;
   }
 
   #current-line {
     font-size: 1.8rem;
   }
 
-  button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
+  /* Ajuste de padding para móvil también */
+  .image-wrapper {
+    padding-bottom: 30vh;
+  }
+
+  /* VIDEOS EN MÓVIL: Mantener el tamaño fijo */
+  .video-element {
+    width: 95vw;
   }
 }
